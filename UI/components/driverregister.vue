@@ -1,11 +1,12 @@
 <template>
-  <v-content>
-    <v-text-title><h1 style="text-align: center;" class="font-bold text-3xl">Driver Register </h1></v-text-title>
+  
+  <v-content class="mx-auto">
+    <v-text-title class="mx-auto"><h1 style="text-align: center;" class="font-bold text-3xl">Driver Register </h1></v-text-title>
     <br>
-     <v-container fluid fill-height>
-        <v-layout align-center justify-center>
-           <v-flex xs12 sm8 md5>
-                    <v-form>
+     <v-container fluid fill-height class="mx-auto">
+        <v-layout align-center justify-center class="mx-auto">
+           <v-flex xs12 sm8 md5 class="mx-auto">
+                    <v-form class="mx-auto">
                       <v-row> <v-col>
                         <div class="text-subtitle-1 text-medium-emphasis">First  name</div>
                       <v-text-field
@@ -188,8 +189,8 @@ export default {
       console.log(res.data)
       
       if(res.data === true){
-        this.$router.push('/driverbank')
-      }
+        this.$router.push('/logindriver')
+            }
       else{
         console.error("register failed");
       }
@@ -198,9 +199,7 @@ export default {
       this.error = true;
     }
     }
-
   }
-
 }
 </script>
 

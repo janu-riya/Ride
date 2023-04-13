@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from pymongo import MongoClient
 from random import choice
+from datetime import date
 import random, string
 
 app = FastAPI()
@@ -377,7 +378,76 @@ async def delete_corporate_bank(account_number:str):
         print(str(e))
         return False
 
-#___________________________________________________________________________________________________________________________________________________
+#____________________________________________________________VEHICLE REGISTRATION_______________________________________________________________________________________
+class Vehicle(BaseModel):
+    owner_name : str
+    supplier_type : str
+    vehicle_type: str
+    fuel_type: str
+    vehicle_capacity: str
+    registration_no: str
+    insurance_no: str
+    issue_date: str
+    expiry_date: str
+    
+
+@app.post("/vehicle")
+async def create_vehicle(Vehicle: Vehicle):
+    try:
+        client.uber.Vehicle.insert_one(dict(Vehicle))
+        return True
+    except Exception as e:
+        print(str(e))
+        return False
+
+@app.get("/vehicle")
+async def get_vehicle(owner_name:str):
+    try:
+        filter ={
+        'owner_name' : owner_name,
+        }
+        project = {
+        '_id':0,
+        }
+        return dict(client.uber.vehicle.find_one(filter=filter, projection=project))
+        return True
+    except Exception as e:
+        print(str(e))
+        return False
+
+class V_vehicle(BaseModel):
+    query :dict ={}
+    key: str
+    value:str 
+
+@app.put("/Vehicle")
+async def change_vehicle(Vehicle: V_vehicle):
+    try:
+        filter= Vehicle.query
+        update={
+            '$set' :{
+            Vehicle.key :Vehicle.value
+            }
+        }
+        client.uber.Vehicle.update(filter,update=update)
+        return True
+    except Exception as e:
+        print(str(e))
+        return False
+
+@app.delete("/Vehicle")
+async def delete_vehicle(registration_no:str):
+    try:
+        filter = {
+            'registration_no' :registration_no,
+
+        }
+        client.uber.Vehicle.delete_one(filter=filter)
+        return True
+    except Exception as e:
+        print(str(e))
+        return False
+
 #_____________________________________________________________________BANK___API____________________________________________________________________
 class Bank(BaseModel):
     pan_number : str
@@ -443,10 +513,74 @@ async def delete_bank(account_number:str):
         print(str(e))
         return False
 #_____________________________________________________________________________________________________________________________________________________________
+class trip(BaseModel):
+    current_location: str
+    Select_Your_destination: str
+    Number_of_Seats: str
+    date: str
+    time:str
+
+@app.get("/trip")
+async def get_trip(Select_Your_destination: str):
+    try:
+        filter ={
+        'Select_Your_destination' : Select_Your_destination,
+        }
+        project = {
+        '_id':0,
+        }
+        return dict(client.uber.trip.find_one(filter=filter,projection=project))
+    except Exception as e:
+        print(str(e))
+        return False
+    
+@app.delete("/trip")
+async def delete_trip(Select_Your_destination:str):
+    try:
+        filter = {
+            'Select_Your_destination' :Select_Your_destination,
+        }
+        client.uber.trip.delete_one(filter=filter)
+        return True
+    except Exception as e:
+        print(str(e))
+        return False
+
+
+@app.post("/trip")
+async def create_trip(trip: trip):
+    try:
+        client.uber.trip.insert_one(dict(trip))
+        return True
+    except Exception as e:
+        print(str(e))
+        return False
+    
+class Ctrip(BaseModel):
+    query :dict ={}
+    key: str
+    value:str 
+
+@app.put("/trip")
+async def change_Trip(trip: Ctrip):
+    try:
+        filter= trip.query
+        update={
+            '$set' :{
+            trip.key :trip.value
+            }
+        }
+        client.uber.trip.update(filter,update=update)
+        return True
+    except Exception as e:
+        print(str(e))
+        return False
+    
+
 
 #Creating trips model......................................................
 
-class Trip(BaseModel):
+'''class Trip(BaseModel):
     id : str = ''.join(random.choices(string.ascii_letters + string.digits, k=16))
     starting_point:str
     ending_point:str
@@ -525,245 +659,4 @@ async def delete_trip(trip_id:str):
         return True
     except Exception as e:
         print(str(e))
-        return False
-    
-#________________________________________________________CAR REGISTRATION________________________________________________________________
-
-class Car(BaseModel):
-    car_model : str
-    registration_no : str
-    insurance : str
-
-@app.get("/car")
-async def get_car(registration_no : str):
-    try:
-        filter ={
-        
-        'registration_no' : registration_no,
-        
-        }
-        project = {
-        '_id':0,
-        }
-        client.uber.car.find_one(filter=filter, project=project)
-        return True
-    except Exception as e:
-        print(str(e))
-        return False    
-
-@app.post("/car")
-async def create_car(car: Car):
-    try:
-        client.uber.car.insert_one(dict(car))
-        return True
-    except Exception as e:
-        print(str(e))
-        return False
-    
-
-class Ccar(BaseModel):
-    query :dict ={}
-    key: str
-    value:str 
-
-@app.put("/car")
-async def change_car(car: Ccar):
-    try:
-        filter= car.query
-        update={
-            '$set' :{
-            car.key :car.value
-            }
-        }
-        client.uber.car.update(filter,update=update)
-        return True
-    except Exception as e:
-        print(str(e))
-        return False    
-
-@app.delete("/car")
-async def delete_car(registration_no:str):
-    try:
-        filter = {
-            'registration_no' : registration_no,
-
-        }
-        client.uber.car.delete_one(filter=filter)
-        return True
-    except Exception as e:
-        print(str(e))
-        return False  
-
-@app.post("/car_upload_files")
-def car_upload(file: UploadFile = File(...)):
-    try:
-        contents = file.file.read()
-        with open(file.filename, 'wb') as f:
-            f.write(contents)
-    except Exception:
-        return {"message": "There was an error uploading the file"}
-    finally:
-        file.file.close()
-
-    return {"message": f"Successfully uploaded {file.filename}"}       
-  
-   #Bike REGISTRATION
-
-class bike(BaseModel):
-    bike_model : str
-    bike_registration_number : str
-    bike_insurance_number : str
-    bike_number:str
-
-@app.get("/bike")
-async def get_bike(bike_registration_number : str):
-    try:
-        filter ={
-        
-        'bike_registration_number' : bike_registration_number,
-        
-        }
-        project = {
-        '_id':0,
-        }
-        client.uber.bike.find_one(filter=filter, project=project)
-        return True
-    except Exception as e:
-        print(str(e))
-        return False    
-
-@app.post("/bike")
-async def create_bike(bike: bike):
-    try:
-        client.uber.bike.insert_one(dict(bike))
-        return True
-    except Exception as e:
-        print(str(e))
-        return False
-    
-
-class Cbike(BaseModel):
-    query :dict ={}
-    key: str
-    value:str 
-
-@app.put("/bike")
-async def change_bike(bike: Cbike):
-    try:
-        filter= bike.query
-        update={
-            '$set' :{
-            bike.key :bike.value
-            }
-        }
-        client.uber.bike.update(filter,update=update)
-        return True
-    except Exception as e:
-        print(str(e))
-        return False    
-
-@app.delete("/bike")
-async def delete_bike(bike_model:str):
-    try:
-        filter = {
-            'bike_model' : bike_model,
-
-        }
-        client.uber.bike.delete_one(filter=filter)
-        return True
-    except Exception as e:
-        print(str(e))
-        return False 
-
-@app.post("/bike_upload_files")
-def bike_upload(file: UploadFile = File(...)):
-    try:
-        contents = file.file.read()
-        with open(file.filename, 'wb') as f:
-            f.write(contents)
-    except Exception:
-        return {"message": "There was an error uploading the file"}
-    finally:
-        file.file.close()
-
-    return {"message": f"Successfully uploaded {file.filename}"}
- #Auto REGISTRATION
-
-class Auto(BaseModel):
-    Auto_model : str
-    Auto_registration_number : str
-    Auto_insurance_number : str
-    Auto_number:str
-
-@app.get("/Auto")
-async def get_Auto(Auto_registration_number : str):
-    try:
-        filter ={
-        
-        'Auto_registration_number' : Auto_registration_number,
-        
-        }
-        project = {
-        '_id':0,
-        }
-        client.uber.Auto.find_one(filter=filter, project=project)
-        return True
-    except Exception as e:
-        print(str(e))
-        return False    
-
-@app.post("/Auto")
-async def create_Auto(Auto: Auto):
-    try:
-        client.uber.Auto.insert_one(dict(Auto))
-        return True
-    except Exception as e:
-        print(str(e))
-        return False
-    
-
-class CAuto(BaseModel):
-    query :dict ={}
-    key: str
-    value:str 
-
-@app.put("/Auto")
-async def change_Auto(Auto: CAuto):
-    try:
-        filter= Auto.query
-        update={
-            '$set' :{
-            Auto.key :Auto.value
-            }
-        }
-        client.uber.Auto.update(filter,update=update)
-        return True
-    except Exception as e:
-        print(str(e))
-        return False    
-
-@app.delete("/Auto")
-async def delete_Auto(Auto_model:str):
-    try:
-        filter = {
-            'Auto_model' : Auto_model,
-
-        }
-        client.uber.Auto.delete_one(filter=filter)
-        return True
-    except Exception as e:
-        print(str(e))
-        return False 
-
-@app.post("/Auto_upload_files")
-def Auto_upload(file: UploadFile = File(...)):
-    try:
-        contents = file.file.read()
-        with open(file.filename, 'wb') as f:
-            f.write(contents)
-    except Exception:
-        return {"message": "There was an error uploading the file"}
-    finally:
-        file.file.close()
-
-    return {"message": f"Successfully uploaded {file.filename}"}
+        return False'''

@@ -90,6 +90,9 @@
   methods: {
     logout() {
         this.$router.push("/loginuser")
+    },
+    ride() {
+      this.$router.push('/ride_now')
     }
   }
 

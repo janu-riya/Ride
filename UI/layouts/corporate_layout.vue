@@ -17,11 +17,17 @@
             </v-list-item-action>
             <v-list-item-title>My Drives</v-list-item-title>
           </v-list-item>
-          <v-list-item>
+          <v-list-item @click=" add_driver()">
             <v-list-item-action>
               <v-icon>mdi-help-circle</v-icon>
             </v-list-item-action>
-            <v-list-item-title>Help</v-list-item-title>
+            <v-list-item-title>Add Driver</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click=" add_vehicle()">
+            <v-list-item-action>
+              <v-icon>mdi-help-circle</v-icon>
+            </v-list-item-action>
+            <v-list-item-title>Add Vehicle</v-list-item-title>
           </v-list-item>
           <v-list-item>
             <v-list-item-action>
@@ -74,12 +80,18 @@
       this.$vuetify.theme.dark = false
     },
     methods: {
-      profile() {
-        this.$router.push('/driver_profile')
+      async add_driver() {
+        this.$router.push('/register_driver')
       },
-      logout() {
+      async profile() {
+        this.$router.push('/corporate_profile')
+      },
+      async logout() {
         this.$vuetify.theme.dark = true
         this.$router.push('/logincorporate')
+      },
+      async add_vehicle(){
+        this.$router.push('/vehicle_reg')
       }
     
   }

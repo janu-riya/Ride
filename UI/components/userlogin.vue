@@ -72,7 +72,7 @@ export default {
     },
     rules : {
       required: (v) => !!v || "Required",
-            mobile : (v) =>  v.length > 10 || "Minimun 10 Characters is required",
+            mobile : (v) =>  v.length > 9 || "Minimun 10 Characters is required",
             password : (v) =>  v.length > 8 || "Minimun 8 Characters is required",
     }
   }),

@@ -36,7 +36,7 @@
                       <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
                         
                         <v-btn text color="black" @click="login()">Login</v-btn>
-                        <v-btn text color="black" to="/register_driver">Register</v-btn>
+                        
                         
                         <v-spacer></v-spacer>
 
