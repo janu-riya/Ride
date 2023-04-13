@@ -189,7 +189,7 @@ export default {
       console.log(res.data)
       
       if(res.data === true){
-        this.$router.push('/logindriver')
+        this.$router.push('/driverbank')
             }
       else{
         console.error("register failed");

@@ -517,6 +517,7 @@ class trip(BaseModel):
     current_location: str
     Select_Your_destination: str
     Number_of_Seats: str
+    select_car: str
     date: str
     time:str
 
