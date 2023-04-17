@@ -6144,16 +6144,16 @@ module.exports = {
   "content": {
     "relative": false,
     "files": [
-      "/home/hari/Documents/travelo_desk/UI/components/**/*.{vue,js,ts}",
-      "/home/hari/Documents/travelo_desk/UI/layouts/**/*.vue",
-      "/home/hari/Documents/travelo_desk/UI/pages/**/*.vue",
-      "/home/hari/Documents/travelo_desk/UI/composables/**/*.{js,ts}",
-      "/home/hari/Documents/travelo_desk/UI/plugins/**/*.{js,ts}",
-      "/home/hari/Documents/travelo_desk/UI/utils/**/*.{js,ts}",
-      "/home/hari/Documents/travelo_desk/UI/App.{js,ts,vue}",
-      "/home/hari/Documents/travelo_desk/UI/app.{js,ts,vue}",
-      "/home/hari/Documents/travelo_desk/UI/Error.{js,ts,vue}",
-      "/home/hari/Documents/travelo_desk/UI/error.{js,ts,vue}"
+      "/home/hari/Documents/Ride/UI/components/**/*.{vue,js,ts}",
+      "/home/hari/Documents/Ride/UI/layouts/**/*.vue",
+      "/home/hari/Documents/Ride/UI/pages/**/*.vue",
+      "/home/hari/Documents/Ride/UI/composables/**/*.{js,ts}",
+      "/home/hari/Documents/Ride/UI/plugins/**/*.{js,ts}",
+      "/home/hari/Documents/Ride/UI/utils/**/*.{js,ts}",
+      "/home/hari/Documents/Ride/UI/App.{js,ts,vue}",
+      "/home/hari/Documents/Ride/UI/app.{js,ts,vue}",
+      "/home/hari/Documents/Ride/UI/Error.{js,ts,vue}",
+      "/home/hari/Documents/Ride/UI/error.{js,ts,vue}"
     ],
     "extract": {},
     "transform": {}

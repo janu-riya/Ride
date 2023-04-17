@@ -13,8 +13,8 @@
                       <v-text-field
                       v-model="corporate.mobile_number"
                         density="compact"
-                        placeholder="Email address"
-                        prepend-inner-icon="mdi-email-outline"
+                        placeholder="Enter Phone Number "
+                        prepend-inner-icon="mdi-phone-outline"
                         variant="outlined"
                       ></v-text-field>
 

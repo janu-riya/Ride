@@ -77,64 +77,23 @@
                             <v-text-field
                             v-model="vehicle.insurance_no"
                               density="compact"
-                              placeholder="Enter Insurance number"
+                              placeholder="Insurance Number"
                               prepend-inner-icon="mdi-account-outline"
                               variant="outlined"
                               :rules="[rules.required]"
                             ></v-text-field>
                         </v-col>
-                        
+                        <v-spacer></v-spacer>
                         <v-col>
                             <div class="text-subtitle-1 text-medium-emphasis">Issue Date</div>
-                            <v-menu
-                            ref="menu"
-                            v-model="menu1"
-                            :close-on-content-click="false"
-                            :return-value.sync="date"
-                            transition="scale-transition"
-                            offset-y
-                            min-width="290px"
-                          >
-                            <template v-slot:activator="{ on, attrs }">
-                              <v-text-field
-                                v-model="date"
-                                label="Picker in menu"
-                       
-                                readonly
-                                v-bind="attrs"
-                                v-on="on"
-                              ></v-text-field>
-                            </template>
-                            <v-date-picker v-model="date" no-title scrollable>
-                              <v-spacer></v-spacer>
-                              <v-btn text color="primary" @click="menu = false">Cancel</v-btn>
-                              <v-btn text color="primary" @click="$refs.menu.save(date)">OK</v-btn>
-                            </v-date-picker>
-                          </v-menu>
+                            
+                            <input style="padding-top: 7%;"  type="date" v-model="vehicle.issue_date" :rules="[v => !!v || 'Date is required']">
                         </v-col>
                         
                         <v-col>
                             <div class="text-subtitle-1 text-medium-emphasis">Expiry Date</div>
                             
-                            <v-menu
-                              v-model="menu2"
-                              :close-on-content-click="false"
-                              :nudge-right="40"
-                              transition="scale-transition"
-                              offset-y
-                              min-width="290px"
-                            >
-                              <template v-slot:activator="{ on, attrs }">
-                                <v-text-field
-                                  v-model="date"
-                                  label="Picker without buttons"
-                                  readonly
-                                  v-bind="attrs"
-                                  v-on="on"
-                                ></v-text-field>
-                              </template>
-                              <v-date-picker v-model="date" @input="menu2 = false"></v-date-picker>
-                            </v-menu>
+                            <input style="padding-top: 7%;"    type="date" v-model="vehicle.expiry_date" :rules="[v => !!v || 'Date is required']">
                         </v-col>
                      </v-row>
                      <br>
@@ -197,37 +156,9 @@
           issue_date:'',
           expiry_date:'',
         },
-
-        date: new Date().toISOString().substr(0, 10),
-        dateFormatted: vm.formatDate(new Date().toISOString().substr(0, 10)),
-        menu1: false,
-        menu2: false,
       }),
-  
-      computed: {
-        computedDateFormatted () {
-          return this.formatDate(this.date)
-        },
-      },
-  
-      watch: {
-        date (val) {
-          this.dateFormatted = this.formatDate(this.date)
-        },
-      },
+    
       methods: {
-        formatDate (date) {
-          if (!date) return null
-  
-          const [year, month, day] = date.split('-')
-          return `${month}/${day}/${year}`
-        },
-        parseDate (date) {
-          if (!date) return null
-  
-          const [month, day, year] = date.split('/')
-          return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
-        },
         async submit(){
           this.$storage.setUniversal('vehicle',this.vehicle.registration_no)
         let  url = "http://127.0.0.1:8000/vehicle"
@@ -242,8 +173,9 @@
         }
         }
 
-      }
-}
+      
+    }
+  }
   </script>
   
   

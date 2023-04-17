@@ -2,99 +2,106 @@
   {
     "name": "corporate_bank",
     "path": "/corporate_bank",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/corporate_bank.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/corporate_bank.vue",
     "chunkName": "pages/corporate_bank",
-    "_name": "_5dc2e007"
+    "_name": "_732de29c"
   },
   {
     "name": "corporate_profile",
     "path": "/corporate_profile",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/corporate_profile.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/corporate_profile.vue",
     "chunkName": "pages/corporate_profile",
-    "_name": "_221ba9ae"
+    "_name": "_dc05ba0e"
   },
   {
     "name": "corporate_register",
     "path": "/corporate_register",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/corporate_register.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/corporate_register.vue",
     "chunkName": "pages/corporate_register",
-    "_name": "_753cab6e"
+    "_name": "_018a5b83"
   },
   {
     "name": "driver_profile",
     "path": "/driver_profile",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/driver_profile.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/driver_profile.vue",
     "chunkName": "pages/driver_profile",
-    "_name": "_0a9fd67a"
+    "_name": "_101b1758"
   },
   {
     "name": "driverbank",
     "path": "/driverbank",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/driverbank.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/driverbank.vue",
     "chunkName": "pages/driverbank",
-    "_name": "_8d3f8bd6"
+    "_name": "_2c75cf2a"
   },
   {
     "name": "logincorporate",
     "path": "/logincorporate",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/logincorporate.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/logincorporate.vue",
     "chunkName": "pages/logincorporate",
-    "_name": "_5b280366"
+    "_name": "_3051fe3c"
   },
   {
     "name": "logindriver",
     "path": "/logindriver",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/logindriver.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/logindriver.vue",
     "chunkName": "pages/logindriver",
-    "_name": "_5ec64af0"
+    "_name": "_4e63587b"
   },
   {
     "name": "loginuser",
     "path": "/loginuser",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/loginuser.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/loginuser.vue",
     "chunkName": "pages/loginuser",
-    "_name": "_459f6113"
+    "_name": "_d8af5544"
   },
   {
     "name": "profile_user",
     "path": "/profile_user",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/profile_user.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/profile_user.vue",
     "chunkName": "pages/profile_user",
-    "_name": "_09ace392"
+    "_name": "_0db18767"
   },
   {
     "name": "register_driver",
     "path": "/register_driver",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/register_driver.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/register_driver.vue",
     "chunkName": "pages/register_driver",
-    "_name": "_59602263"
+    "_name": "_1d551b24"
   },
   {
     "name": "register_user",
     "path": "/register_user",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/register_user.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/register_user.vue",
     "chunkName": "pages/register_user",
-    "_name": "_78c30d74"
+    "_name": "_402e5011"
   },
   {
     "name": "ride_now",
     "path": "/ride_now",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/ride_now.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/ride_now.vue",
     "chunkName": "pages/ride_now",
-    "_name": "_33acc900"
+    "_name": "_c3491c56"
+  },
+  {
+    "name": "test",
+    "path": "/test",
+    "component": "/home/hari/Documents/Ride/UI/pages/test.vue",
+    "chunkName": "pages/test",
+    "_name": "_12d73cd8"
   },
   {
     "name": "vehicle_reg",
     "path": "/vehicle_reg",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/vehicle_reg.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/vehicle_reg.vue",
     "chunkName": "pages/vehicle_reg",
-    "_name": "_619fc1c0"
+    "_name": "_8265a6aa"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/home/hari/Documents/travelo_desk/UI/pages/index.vue",
+    "component": "/home/hari/Documents/Ride/UI/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_2d8d709e"
+    "_name": "_60e6197c"
   }
 ]

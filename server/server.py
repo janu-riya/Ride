@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from pymongo import MongoClient
 from random import choice
-from datetime import date
 import random, string
 
 app = FastAPI()
@@ -579,85 +578,66 @@ async def change_Trip(trip: Ctrip):
     
 
 
-#Creating trips model......................................................
+#Creating quote model......................................................
+class quote(BaseModel):
+    Select_the_vehicle: str
+    Select_the_driver: str
+    waiting_charge: str
+    total_amount: str
+    car_number: str
 
-'''class Trip(BaseModel):
-    id : str = ''.join(random.choices(string.ascii_letters + string.digits, k=16))
-    starting_point:str
-    ending_point:str
-    distance:float
-    customer_id:str
-    driver_id:str
-    vehicle_id:str
-    fare:float = 50.0
-    status: str = "initiated"
-    
-
-
-@app.get("/trip")
-async def get_trip(id:str):
+@app.get("/quote")
+async def get_quote(car_number: str):
     try:
-         filter ={
-        'id' : id,
+        filter ={
+        'car_number' : car_number,
         }
-         project = {
+        project = {
         '_id':0,
         }
-         return dict(client.uber.trip.find_one(filter=filter,projection=project))
-         
+        return dict(client.uber.quote.find_one(filter=filter,projection=project))
+    except Exception as e:
+        print(str(e))
+        return False
+    
+@app.delete("/quote")
+async def delete_quote(car_number:str):
+    try:
+        filter = {
+            'car_number' :car_number,
+        }
+        client.uber.quote.delete_one(filter=filter)
+        return True
     except Exception as e:
         print(str(e))
         return False
 
-@app.post("/trip")
-async def create_trip(trip:Trip):
-    
+
+@app.post("/quote")
+async def create_quote(quote: quote):
     try:
-        filter={
-        'email': trip.driver_id
-        }
-        ufilter = {
-            "email": trip.customer_id
-        }
-        if(client.uber.driver.count_documents(filter)) == 1 and client.uber.user.count_documents(ufilter) == 1:
-            client.uber.trip.insert_one(dict(trip))
-            return trip.id
-        else:
-            return "not initiated"
-            
+        client.uber.quote.insert_one(dict(quote))
+        return True
     except Exception as e:
         print(str(e))
         return False
-class CTrip(BaseModel):
+    
+class Cquote(BaseModel):
     query :dict ={}
     key: str
     value:str 
 
-@app.put("/trip")
-async def change_trip(trip: CTrip):
+@app.put("/quote")
+async def change_Quote(quote: Cquote):
     try:
-        filter= trip.query
+        filter= quote.query
         update={
             '$set' :{
-            trip.key :trip.value
+            quote.key :quote.value
             }
         }
-        client.uber.trip.update(filter,update=update)
+        client.uber.quote.update(filter,update=update)
         return True
-    
     except Exception as e:
         print(str(e))
         return False
-    
-@app.delete("/trip")
-async def delete_trip(trip_id:str):
-    try:
-        filter = {
-            'id' :id,
-
-        }
-        client.uber.trip.delete_one(filter=filter)
-        return True
-    except Exception as e:
-        print(str(e))
-        return False'''

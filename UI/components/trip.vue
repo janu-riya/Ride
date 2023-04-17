@@ -1,6 +1,6 @@
 <template>
 <v-content>
-  <v-text-title><h1 style="text-align: center;" class="font-bold text-3xl">Vehicle Registration </h1></v-text-title>
+  <v-text-title><h1 style="text-align: center;" class="font-bold text-3xl">Create a Trip </h1></v-text-title>
   <br>
    <v-container fluid fill-height>
       <v-layout align-center justify-center>

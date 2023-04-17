@@ -4,20 +4,21 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _5dc2e007 = () => interopDefault(import('../pages/corporate_bank.vue' /* webpackChunkName: "pages/corporate_bank" */))
-const _221ba9ae = () => interopDefault(import('../pages/corporate_profile.vue' /* webpackChunkName: "pages/corporate_profile" */))
-const _753cab6e = () => interopDefault(import('../pages/corporate_register.vue' /* webpackChunkName: "pages/corporate_register" */))
-const _0a9fd67a = () => interopDefault(import('../pages/driver_profile.vue' /* webpackChunkName: "pages/driver_profile" */))
-const _8d3f8bd6 = () => interopDefault(import('../pages/driverbank.vue' /* webpackChunkName: "pages/driverbank" */))
-const _5b280366 = () => interopDefault(import('../pages/logincorporate.vue' /* webpackChunkName: "pages/logincorporate" */))
-const _5ec64af0 = () => interopDefault(import('../pages/logindriver.vue' /* webpackChunkName: "pages/logindriver" */))
-const _459f6113 = () => interopDefault(import('../pages/loginuser.vue' /* webpackChunkName: "pages/loginuser" */))
-const _09ace392 = () => interopDefault(import('../pages/profile_user.vue' /* webpackChunkName: "pages/profile_user" */))
-const _59602263 = () => interopDefault(import('../pages/register_driver.vue' /* webpackChunkName: "pages/register_driver" */))
-const _78c30d74 = () => interopDefault(import('../pages/register_user.vue' /* webpackChunkName: "pages/register_user" */))
-const _33acc900 = () => interopDefault(import('../pages/ride_now.vue' /* webpackChunkName: "pages/ride_now" */))
-const _619fc1c0 = () => interopDefault(import('../pages/vehicle_reg.vue' /* webpackChunkName: "pages/vehicle_reg" */))
-const _2d8d709e = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _732de29c = () => interopDefault(import('../pages/corporate_bank.vue' /* webpackChunkName: "pages/corporate_bank" */))
+const _dc05ba0e = () => interopDefault(import('../pages/corporate_profile.vue' /* webpackChunkName: "pages/corporate_profile" */))
+const _018a5b83 = () => interopDefault(import('../pages/corporate_register.vue' /* webpackChunkName: "pages/corporate_register" */))
+const _101b1758 = () => interopDefault(import('../pages/driver_profile.vue' /* webpackChunkName: "pages/driver_profile" */))
+const _2c75cf2a = () => interopDefault(import('../pages/driverbank.vue' /* webpackChunkName: "pages/driverbank" */))
+const _3051fe3c = () => interopDefault(import('../pages/logincorporate.vue' /* webpackChunkName: "pages/logincorporate" */))
+const _4e63587b = () => interopDefault(import('../pages/logindriver.vue' /* webpackChunkName: "pages/logindriver" */))
+const _d8af5544 = () => interopDefault(import('../pages/loginuser.vue' /* webpackChunkName: "pages/loginuser" */))
+const _0db18767 = () => interopDefault(import('../pages/profile_user.vue' /* webpackChunkName: "pages/profile_user" */))
+const _1d551b24 = () => interopDefault(import('../pages/register_driver.vue' /* webpackChunkName: "pages/register_driver" */))
+const _402e5011 = () => interopDefault(import('../pages/register_user.vue' /* webpackChunkName: "pages/register_user" */))
+const _c3491c56 = () => interopDefault(import('../pages/ride_now.vue' /* webpackChunkName: "pages/ride_now" */))
+const _12d73cd8 = () => interopDefault(import('../pages/test.vue' /* webpackChunkName: "pages/test" */))
+const _8265a6aa = () => interopDefault(import('../pages/vehicle_reg.vue' /* webpackChunkName: "pages/vehicle_reg" */))
+const _60e6197c = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -32,59 +33,63 @@ export const routerOptions = {
 
   routes: [{
     path: "/corporate_bank",
-    component: _5dc2e007,
+    component: _732de29c,
     name: "corporate_bank"
   }, {
     path: "/corporate_profile",
-    component: _221ba9ae,
+    component: _dc05ba0e,
     name: "corporate_profile"
   }, {
     path: "/corporate_register",
-    component: _753cab6e,
+    component: _018a5b83,
     name: "corporate_register"
   }, {
     path: "/driver_profile",
-    component: _0a9fd67a,
+    component: _101b1758,
     name: "driver_profile"
   }, {
     path: "/driverbank",
-    component: _8d3f8bd6,
+    component: _2c75cf2a,
     name: "driverbank"
   }, {
     path: "/logincorporate",
-    component: _5b280366,
+    component: _3051fe3c,
     name: "logincorporate"
   }, {
     path: "/logindriver",
-    component: _5ec64af0,
+    component: _4e63587b,
     name: "logindriver"
   }, {
     path: "/loginuser",
-    component: _459f6113,
+    component: _d8af5544,
     name: "loginuser"
   }, {
     path: "/profile_user",
-    component: _09ace392,
+    component: _0db18767,
     name: "profile_user"
   }, {
     path: "/register_driver",
-    component: _59602263,
+    component: _1d551b24,
     name: "register_driver"
   }, {
     path: "/register_user",
-    component: _78c30d74,
+    component: _402e5011,
     name: "register_user"
   }, {
     path: "/ride_now",
-    component: _33acc900,
+    component: _c3491c56,
     name: "ride_now"
   }, {
+    path: "/test",
+    component: _12d73cd8,
+    name: "test"
+  }, {
     path: "/vehicle_reg",
-    component: _619fc1c0,
+    component: _8265a6aa,
     name: "vehicle_reg"
   }, {
     path: "/",
-    component: _2d8d709e,
+    component: _60e6197c,
     name: "index"
   }],
 

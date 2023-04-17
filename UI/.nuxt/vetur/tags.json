@@ -35,6 +35,9 @@
   "Profile1": {
     "description": "Auto imported from components/profile1.vue"
   },
+  "Quote": {
+    "description": "Auto imported from components/quote.vue"
+  },
   "Register": {
     "description": "Auto imported from components/register.vue"
   },

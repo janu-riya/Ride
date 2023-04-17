@@ -14,7 +14,7 @@
                       v-model="driver.mobile_number"
                         density="compact"
                         placeholder="Phone number"
-                        prepend-inner-icon="mdi-email-outline"
+                        prepend-inner-icon="mdi-phone-outline"
                         variant="outlined"
                         :rules="[rules.required, rules.mobile]"
                       ></v-text-field>

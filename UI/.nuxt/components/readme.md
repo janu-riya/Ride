@@ -18,6 +18,7 @@ You can directly use them in pages and other components without the need to impo
 - `<Location>` | `<location>` (components/location.vue)
 - `<Profile>` | `<profile>` (components/profile.vue)
 - `<Profile1>` | `<profile1>` (components/profile1.vue)
+- `<Quote>` | `<quote>` (components/quote.vue)
 - `<Register>` | `<register>` (components/register.vue)
 - `<Test1>` | `<test1>` (components/test1.vue)
 - `<Trip>` | `<trip>` (components/trip.vue)
