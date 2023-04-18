@@ -29,6 +29,12 @@
             </v-list-item-action>
             <v-list-item-title>Add Vehicle</v-list-item-title>
           </v-list-item>
+          <v-list-item @click=" user_request()">
+            <v-list-item-action>
+              <v-icon>mdi-help-circle</v-icon>
+            </v-list-item-action>
+            <v-list-item-title>User Requests</v-list-item-title>
+          </v-list-item>
           <v-list-item>
             <v-list-item-action>
               <v-icon>mdi-cog</v-icon>
@@ -92,6 +98,9 @@
       },
       async add_vehicle(){
         this.$router.push('/vehicle_reg')
+      },
+      async user_request(){
+        this.$router.push('/user_requests')
       }
     
   }

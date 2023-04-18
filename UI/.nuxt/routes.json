@@ -63,6 +63,13 @@
     "_name": "_0db18767"
   },
   {
+    "name": "quotes",
+    "path": "/quotes",
+    "component": "/home/hari/Documents/Ride/UI/pages/quotes.vue",
+    "chunkName": "pages/quotes",
+    "_name": "_411cc886"
+  },
+  {
     "name": "register_driver",
     "path": "/register_driver",
     "component": "/home/hari/Documents/Ride/UI/pages/register_driver.vue",
@@ -89,6 +96,13 @@
     "component": "/home/hari/Documents/Ride/UI/pages/test.vue",
     "chunkName": "pages/test",
     "_name": "_12d73cd8"
+  },
+  {
+    "name": "user_requests",
+    "path": "/user_requests",
+    "component": "/home/hari/Documents/Ride/UI/pages/user_requests.vue",
+    "chunkName": "pages/user_requests",
+    "_name": "_78c79562"
   },
   {
     "name": "vehicle_reg",

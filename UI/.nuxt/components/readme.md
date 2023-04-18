@@ -12,6 +12,8 @@ You can directly use them in pages and other components without the need to impo
 - `<Corporate>` | `<corporate>` (components/corporate.vue)
 - `<Corporatelogin>` | `<corporatelogin>` (components/corporatelogin.vue)
 - `<Corporateprofile>` | `<corporateprofile>` (components/corporateprofile.vue)
+- `<Disquote>` | `<disquote>` (components/disquote.vue)
+- `<Distrips>` | `<distrips>` (components/distrips.vue)
 - `<Driverlogin>` | `<driverlogin>` (components/driverlogin.vue)
 - `<Driverregister>` | `<driverregister>` (components/driverregister.vue)
 - `<Homeintro>` | `<homeintro>` (components/homeintro.vue)

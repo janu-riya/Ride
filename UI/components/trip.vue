@@ -6,6 +6,7 @@
       <v-layout align-center justify-center>
          <v-flex xs12 sm8 md5>
                   <v-form>
+               
                     <v-row> <v-col>
                       <div class="text-subtitle-1 text-medium-emphasis">Pickup Location</div>
                       <v-select
@@ -84,13 +85,8 @@ export default {
 export default {
   data(){
     return {
-      current_location:'',
-      Select_Your_destination:'',
-      Number_of_Seats:'',
-      select_car:'',
-      date:'',
-      time:'',
       trip:{
+        mobile_number:this.$storage.getUniversal('customer_mobile'),
         current_location:'',
         Select_Your_destination:'',
         Number_of_Seats:'',
@@ -101,8 +97,15 @@ export default {
     }
   },
   methods:{
+    async mounted(){
+      this.trip.mobile = this.$storage.getUniversal('customer_mobile')
+
+      console.log('this.trip.mobile')
+
+    },
+
     async submit(){
-      this.$storage.setUniversal('user_trip',this.trip.Select_Your_destination)
+      this.$storage.setUniversal('user_trip',this.trip.mobile_number)
       let  url = "http://127.0.0.1:8000/trip"
       let res= await this.$axios.post(url, this.trip)
       console.log(res.data)

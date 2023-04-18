@@ -17,6 +17,12 @@
   "Corporateprofile": {
     "description": "Auto imported from components/corporateprofile.vue"
   },
+  "Disquote": {
+    "description": "Auto imported from components/disquote.vue"
+  },
+  "Distrips": {
+    "description": "Auto imported from components/distrips.vue"
+  },
   "Driverlogin": {
     "description": "Auto imported from components/driverlogin.vue"
   },

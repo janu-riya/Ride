@@ -13,10 +13,12 @@ const _3051fe3c = () => interopDefault(import('../pages/logincorporate.vue' /* w
 const _4e63587b = () => interopDefault(import('../pages/logindriver.vue' /* webpackChunkName: "pages/logindriver" */))
 const _d8af5544 = () => interopDefault(import('../pages/loginuser.vue' /* webpackChunkName: "pages/loginuser" */))
 const _0db18767 = () => interopDefault(import('../pages/profile_user.vue' /* webpackChunkName: "pages/profile_user" */))
+const _411cc886 = () => interopDefault(import('../pages/quotes.vue' /* webpackChunkName: "pages/quotes" */))
 const _1d551b24 = () => interopDefault(import('../pages/register_driver.vue' /* webpackChunkName: "pages/register_driver" */))
 const _402e5011 = () => interopDefault(import('../pages/register_user.vue' /* webpackChunkName: "pages/register_user" */))
 const _c3491c56 = () => interopDefault(import('../pages/ride_now.vue' /* webpackChunkName: "pages/ride_now" */))
 const _12d73cd8 = () => interopDefault(import('../pages/test.vue' /* webpackChunkName: "pages/test" */))
+const _78c79562 = () => interopDefault(import('../pages/user_requests.vue' /* webpackChunkName: "pages/user_requests" */))
 const _8265a6aa = () => interopDefault(import('../pages/vehicle_reg.vue' /* webpackChunkName: "pages/vehicle_reg" */))
 const _60e6197c = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -68,6 +70,10 @@ export const routerOptions = {
     component: _0db18767,
     name: "profile_user"
   }, {
+    path: "/quotes",
+    component: _411cc886,
+    name: "quotes"
+  }, {
     path: "/register_driver",
     component: _1d551b24,
     name: "register_driver"
@@ -83,6 +89,10 @@ export const routerOptions = {
     path: "/test",
     component: _12d73cd8,
     name: "test"
+  }, {
+    path: "/user_requests",
+    component: _78c79562,
+    name: "user_requests"
   }, {
     path: "/vehicle_reg",
     component: _8265a6aa,

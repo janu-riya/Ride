@@ -513,6 +513,8 @@ async def delete_bank(account_number:str):
         return False
 #_____________________________________________________________________________________________________________________________________________________________
 class trip(BaseModel):
+    
+    mobile_number:str
     current_location: str
     Select_Your_destination: str
     Number_of_Seats: str
@@ -521,24 +523,24 @@ class trip(BaseModel):
     time:str
 
 @app.get("/trip")
-async def get_trip(Select_Your_destination: str):
+async def get_trip(mobile_number: str):
     try:
         filter ={
-        'Select_Your_destination' : Select_Your_destination,
+        'mobile_number' : mobile_number,
         }
         project = {
         '_id':0,
         }
-        return dict(client.uber.trip.find_one(filter=filter,projection=project))
+        return list(client.uber.trip.find(filter=filter,projection=project))
     except Exception as e:
         print(str(e))
         return False
     
 @app.delete("/trip")
-async def delete_trip(Select_Your_destination:str):
+async def delete_trip(mobile_number:str):
     try:
         filter = {
-            'Select_Your_destination' :Select_Your_destination,
+            'mobile_number' : mobile_number,
         }
         client.uber.trip.delete_one(filter=filter)
         return True
@@ -576,7 +578,21 @@ async def change_Trip(trip: Ctrip):
         print(str(e))
         return False
     
+#______________________________________________________________________________
 
+@app.get("/trip/all")
+async def get_all_trip():
+    
+    try:
+        filter={}
+        project={
+            '_id': 0
+        }
+        return list(client.uber.trip.find(filter=filter,projection=project))
+        
+    except Exception as e:
+        print(str(e))
+        return False
 
 #Creating quote model......................................................
 class quote(BaseModel):
