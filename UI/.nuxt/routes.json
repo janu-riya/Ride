@@ -105,6 +105,13 @@
     "_name": "_78c79562"
   },
   {
+    "name": "user_trips",
+    "path": "/user_trips",
+    "component": "/home/hari/Documents/Ride/UI/pages/user_trips.vue",
+    "chunkName": "pages/user_trips",
+    "_name": "_40492540"
+  },
+  {
     "name": "vehicle_reg",
     "path": "/vehicle_reg",
     "component": "/home/hari/Documents/Ride/UI/pages/vehicle_reg.vue",

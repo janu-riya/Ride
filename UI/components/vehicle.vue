@@ -146,6 +146,7 @@
         },
   
         vehicle : {
+          
           owner_name:'',
           supplier_type:'',
           vehicle_type:'',

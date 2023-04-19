@@ -91,6 +91,7 @@
         ifsc_code:'',
 
         bank:{
+          mobile_number:this.$storage.getUniversal('corporate_mobile'),
           pan_number:'',
           select_bank:'',
           account_name:'',
@@ -102,6 +103,7 @@
     methods:{
       async submit(){
         this.$storage.setUniversal('corporate_bank',this.bank.account_number)
+
         let  url = "http://127.0.0.1:8000/corporate_bank"
         let res= await this.$axios.post(url, this.bank)
         console.log(res.data)

@@ -74,20 +74,20 @@
                     </v-list-item-content>  
                   </v-list-item>
                 </v-col>
-                <v-col>
-                  <v-btn icon color="primary">
+                <v-col style="padding-top: 1.3%;">
+                  <v-btn icon color="primary" style="margin-right: 5%;">
                       <v-icon>
                         mdi-information
                       </v-icon>
                       
                   </v-btn>
-                  <v-btn icon color="success" @click="quote()" >
+                  <v-btn icon style="margin-right: 5%;" color="success" @click="quote(trip.id, trip.mobile_number)" >
                     <v-icon>
                       mdi-check
                     </v-icon>
                   
                 </v-btn>
-                <v-btn icon color="error">
+                <v-btn icon color="error" @click="del()">
                   <v-icon>
                     mdi-delete
                   </v-icon>
@@ -110,7 +110,7 @@ export default {
         this.$vuetify.theme.dark = false;
         this.trip = this.$storage.getUniversal('user_trip')
         let url = "http://127.0.0.1:8000/trip/all"
-        let res = await this.$axios.get(url,{params:{mobile_number: this.trip}})
+        let res = await this.$axios.get(url,{params:{id: this.trip}})
         this.trip_data = res.data
         console.log(this.trip_data)
 
@@ -118,12 +118,21 @@ export default {
     data: () =>({
         trip:"",
         mobile_number:"",
-        trip_data:[],
-        
-        
-        
-
-       
-    })
+        trip_data:[],  
+    }),
+    methods: {
+      async quote(id, mobile_number){
+        this.$storage.setUniversal('trip_id',id)
+        this.$storage.setUniversal('trip_number', mobile_number)
+        console.log(mobile_number)
+        this.$router.push('/quotes')
+      },
+      async del(){
+        this.del = this.$storage.getUniversal('user_trip')
+        let d_url = "http://127.0.0.1:8000/trip/all"
+        let d_res = await this.$axios.delete(d_url,{mobile_number: this.del})
+        this.del_data = d_res.data
+      }
+    }
 }
 </script>

@@ -19,6 +19,7 @@ const _402e5011 = () => interopDefault(import('../pages/register_user.vue' /* we
 const _c3491c56 = () => interopDefault(import('../pages/ride_now.vue' /* webpackChunkName: "pages/ride_now" */))
 const _12d73cd8 = () => interopDefault(import('../pages/test.vue' /* webpackChunkName: "pages/test" */))
 const _78c79562 = () => interopDefault(import('../pages/user_requests.vue' /* webpackChunkName: "pages/user_requests" */))
+const _40492540 = () => interopDefault(import('../pages/user_trips.vue' /* webpackChunkName: "pages/user_trips" */))
 const _8265a6aa = () => interopDefault(import('../pages/vehicle_reg.vue' /* webpackChunkName: "pages/vehicle_reg" */))
 const _60e6197c = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -93,6 +94,10 @@ export const routerOptions = {
     path: "/user_requests",
     component: _78c79562,
     name: "user_requests"
+  }, {
+    path: "/user_trips",
+    component: _40492540,
+    name: "user_trips"
   }, {
     path: "/vehicle_reg",
     component: _8265a6aa,

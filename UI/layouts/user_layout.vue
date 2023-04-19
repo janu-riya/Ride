@@ -33,6 +33,12 @@
           </v-list-item-action>
           <v-list-item-title>Ride now</v-list-item-title>
         </v-list-item>
+        <v-list-item @click="trip()">
+          <v-list-item-action>
+            <v-icon>mdi-account</v-icon>
+          </v-list-item-action>
+          <v-list-item-title>User Trip</v-list-item-title>
+        </v-list-item>
         <v-list-item>
           <v-list-item-action>
             <v-icon>mdi-help-circle</v-icon>
@@ -93,6 +99,9 @@
     },
     ride() {
       this.$router.push('/ride_now')
+    },
+    trip(){
+      this.$router.push('/user_trips')
     }
   }
 

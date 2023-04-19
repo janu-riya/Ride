@@ -86,6 +86,7 @@ export default {
   data(){
     return {
       trip:{
+        id:'',
         mobile_number:this.$storage.getUniversal('customer_mobile'),
         current_location:'',
         Select_Your_destination:'',
@@ -105,7 +106,8 @@ export default {
     },
 
     async submit(){
-      this.$storage.setUniversal('user_trip',this.trip.mobile_number)
+      this.$storage.setUniversal('user_trip',this.trip.id)
+      this.$storage.setUniversal('user_trip_mobile',this.trip.mobile_number)
       let  url = "http://127.0.0.1:8000/trip"
       let res= await this.$axios.post(url, this.trip)
       console.log(res.data)

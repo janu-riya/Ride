@@ -29,7 +29,9 @@
                       ></v-text-field>
                     </v-col>
                    </v-row>
-                   <div class="text-subtitle-1 text-medium-emphasis">Location</div>
+                   <v-row>
+                    <v-col>
+                      <div class="text-subtitle-1 text-medium-emphasis">Location</div>
 
                       <v-text-field
                         density="compact"
@@ -38,7 +40,9 @@
                         prepend-inner-icon="mdi-account-outline"
                         variant="outlined"
                       ></v-text-field>
-                   <div class="text-subtitle-1 text-medium-emphasis">Aadhar ID</div>
+                    </v-col>
+                    <v-col>
+                      <div class="text-subtitle-1 text-medium-emphasis">Aadhar ID</div>
 
                       <v-text-field
                         density="compact"
@@ -47,54 +51,11 @@
                         prepend-inner-icon="mdi-account-outline"
                         variant="outlined"
                       ></v-text-field>
-                      <v-radio-group
-                      v-model="driver.userType"
-
-                      label=""
-                      row
-                    >
-                    <v-radio
-                      label="Select Whether you running a business as a Firm"
-                      value="Business user"
-                    ></v-radio>
-                      </v-radio-group>
-                    <div v-if="driver.userType === 'Business user'" class=" text-xl">Provide the Business related Details</div>
-                    
-                    <v-row>
-                      <v-col>
-                    <div v-if="driver.userType === 'Business user'" class="text-1xl">GST number</div>
-                    <v-text-field
-                      v-if="driver.userType === 'Business user'"
-                      density="compact"
-                      v-model="driver.gst_number"
-                        placeholder="Enter the GST Number"
-                        prepend-inner-icon="mdi-account-outline"
-                        variant="outlined"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col>
-                    <div v-if="driver.userType === 'Business user'" class="text-1xl">Firm PAN No</div>
-                    <v-text-field
-                      v-if="driver.userType === 'Business user'"
-                      density="compact"
-                      v-model="driver.firm_pan_number"
-                        placeholder="Enter the Firm Pan Number"
-                        prepend-inner-icon="mdi-account-outline"
-                        variant="outlined"
-                    ></v-text-field>
-                  </v-col>
-                  </v-row>
-                  <div v-if="driver.userType === 'Business user'" class="text-1xl">Nature Of Business</div>
-                 
-                  <v-select
-                  v-if="driver.userType === 'Business user'"
-                  v-model="driver.natureof_business"
-                     
-                      :items="['others']"
-                      label="Select the NAture of Business"
-                    ></v-select>
-                
-                   <div class="text-subtitle-1 text-medium-emphasis">Password</div>
+                    </v-col>
+                   </v-row>
+                   <v-row>
+                    <v-col>
+                      <div class="text-subtitle-1 text-medium-emphasis">Password</div>
                       <v-text-field
                         :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
                         :type="visible ? 'text' : 'password'"
@@ -105,8 +66,7 @@
                         variant="outlined"
 
                       ></v-text-field>
-
-                   <v-row>
+                    </v-col>
                     <v-col>
 
                       <div class="text-subtitle-1 text-medium-emphasis">Phone Number</div>
@@ -155,6 +115,7 @@ export default {
   data() {
     return  {
       driver :{
+      corporate_mobile:this.$storage.getUniversal('corporate_mobile') ,
       first_name : "",
       last_name : "",
       location : "",

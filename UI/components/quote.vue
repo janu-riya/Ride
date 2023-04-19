@@ -23,7 +23,7 @@
 
                         <v-select
                                 v-model="quote.Select_the_driver"
-                                label="Select_the_car"
+                                label="Select_the_driver"
                                 dense outlined prepend-icon="mdi-car"
                               :items="['Renault Kwid', 'Maruti Suzuki WagonR', 'GHyundai Santro', 'Maruti Suzuki Ignis', 'Hyundai Grand i10 Nios', 'Maruti Suzuki Baleno','Ford Figo','Tata Altroz','Maruti Suzuki Dzire','Skoda Rapid','Honda City 4th Gen','Hyundai Venue']"
                               :rules="[v=> !!v ||'select car is required']"
@@ -113,6 +113,8 @@
            car_number:'',
    
            quote:{
+            id:this.$storage.getUniversal('trip_id'),
+            mobile_number: this.$storage.getUniversal('trip_number'),
            Select_the_vehicle:'',
            Select_the_driver:'',
            waiting_charge:'',

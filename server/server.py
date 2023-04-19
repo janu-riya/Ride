@@ -314,6 +314,7 @@ async def driver_login(mobile_number: str, password: str):
 #______________________________________________________________CORPORATE_BANK_API_____________________________________________________________________________
 
 class CorporateBank(BaseModel):
+    mobile_number: str
     pan_number : str
     select_bank : str
     account_name: str
@@ -513,7 +514,7 @@ async def delete_bank(account_number:str):
         return False
 #_____________________________________________________________________________________________________________________________________________________________
 class trip(BaseModel):
-    
+    id : str = ""
     mobile_number:str
     current_location: str
     Select_Your_destination: str
@@ -523,10 +524,10 @@ class trip(BaseModel):
     time:str
 
 @app.get("/trip")
-async def get_trip(mobile_number: str):
+async def get_trip(id: str):
     try:
         filter ={
-        'mobile_number' : mobile_number,
+        'id' : id,
         }
         project = {
         '_id':0,
@@ -537,10 +538,10 @@ async def get_trip(mobile_number: str):
         return False
     
 @app.delete("/trip")
-async def delete_trip(mobile_number:str):
+async def delete_trip(id:str):
     try:
         filter = {
-            'mobile_number' : mobile_number,
+            'id' : id,
         }
         client.uber.trip.delete_one(filter=filter)
         return True
@@ -552,6 +553,7 @@ async def delete_trip(mobile_number:str):
 @app.post("/trip")
 async def create_trip(trip: trip):
     try:
+        trip.id = ''.join(random.choices(string.ascii_letters + string.digits, k=16))
         client.uber.trip.insert_one(dict(trip))
         return True
     except Exception as e:
@@ -578,6 +580,20 @@ async def change_Trip(trip: Ctrip):
         print(str(e))
         return False
     
+#_______________________________________________________________________________________________________________________
+@app.get("/trip/user/all")
+async def user_trips(mobile_number: str):
+    try:
+        filter={
+            'mobile_number': mobile_number,
+        }
+        project={'_id':0}
+        return list(client.uber.trip.find(filter=filter,projection=project))
+        
+        
+    except Exception as e:
+        print(str(e))
+        return False    
 #______________________________________________________________________________
 
 @app.get("/trip/all")
@@ -594,8 +610,24 @@ async def get_all_trip():
         print(str(e))
         return False
 
+@app.delete("/trip/all")
+async def delete_trip(id: str):
+    try:
+        filter={
+            'id': id,
+        }
+        project={
+            
+        }
+        client.uber.trip.delete_one(filter=filter,projection=project)
+        return True
+    except Exception as e:
+        print(str(e))
+        return False
 #Creating quote model......................................................
 class quote(BaseModel):
+    id: str
+    mobile_number: str
     Select_the_vehicle: str
     Select_the_driver: str
     waiting_charge: str
@@ -654,6 +686,20 @@ async def change_Quote(quote: Cquote):
         }
         client.uber.quote.update(filter,update=update)
         return True
+    except Exception as e:
+        print(str(e))
+        return False
+    
+@app.get("/quote/all")
+async def get_all_quotes():
+    
+    try:
+        filter={}
+        project={
+            '_id': 0
+        }
+        return list(client.uber.quote.find(filter=filter,projection=project))
+        
     except Exception as e:
         print(str(e))
         return False
