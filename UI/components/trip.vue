@@ -88,6 +88,7 @@ export default {
       trip:{
         id:'',
         mobile_number:this.$storage.getUniversal('customer_mobile'),
+        
         current_location:'',
         Select_Your_destination:'',
         Number_of_Seats:'',

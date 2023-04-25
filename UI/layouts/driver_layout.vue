@@ -17,6 +17,12 @@
           </v-list-item-action>
           <v-list-item-title>My Drives</v-list-item-title>
         </v-list-item>
+        <v-list-item @click=" driver_quote()">
+          <v-list-item-action>
+            <v-icon>mdi-account</v-icon>
+          </v-list-item-action>
+          <v-list-item-title>Driver Quotes</v-list-item-title>
+        </v-list-item>
         <v-list-item>
           <v-list-item-action>
             <v-icon>mdi-help-circle</v-icon>
@@ -74,12 +80,15 @@ export default {
     this.$vuetify.theme.dark = false
   },
   methods: {
-    profile() {
+    async profile() {
       this.$router.push('/driver_profile')
     },
-    logout() {
+    async logout() {
       this.$vuetify.theme.dark = true
       this.$router.push('/logindriver')
+    },
+    async driver_quote(){
+      this.$router.push('/drivers_quotes')
     }
   
 }

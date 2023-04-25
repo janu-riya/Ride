@@ -77,13 +77,17 @@
   export default {
     data() {
       return {
-        drawer: false
+        drawer: false,
       }
+      
     },
+
   
     name: 'corporate_layout',
     async mounted () {
       this.$vuetify.theme.dark = false
+     
+      
     },
     methods: {
       async add_driver() {
@@ -97,6 +101,7 @@
         this.$router.push('/logincorporate')
       },
       async add_vehicle(){
+
         this.$router.push('/vehicle_reg')
       },
       async user_request(){

@@ -8,6 +8,9 @@
   "Bankdriver": {
     "description": "Auto imported from components/bankdriver.vue"
   },
+  "Booking": {
+    "description": "Auto imported from components/booking.vue"
+  },
   "Corporate": {
     "description": "Auto imported from components/corporate.vue"
   },
@@ -17,14 +20,17 @@
   "Corporateprofile": {
     "description": "Auto imported from components/corporateprofile.vue"
   },
-  "Disquote": {
-    "description": "Auto imported from components/disquote.vue"
+  "Disquotes": {
+    "description": "Auto imported from components/disquotes.vue"
   },
   "Distrips": {
     "description": "Auto imported from components/distrips.vue"
   },
   "Driverlogin": {
     "description": "Auto imported from components/driverlogin.vue"
+  },
+  "Driverquote": {
+    "description": "Auto imported from components/driverquote.vue"
   },
   "Driverregister": {
     "description": "Auto imported from components/driverregister.vue"

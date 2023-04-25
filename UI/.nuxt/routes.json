@@ -1,5 +1,12 @@
 [
   {
+    "name": "assigned_quotes",
+    "path": "/assigned_quotes",
+    "component": "/home/hari/Documents/Ride/UI/pages/assigned_quotes.vue",
+    "chunkName": "pages/assigned_quotes",
+    "_name": "_0dd3b432"
+  },
+  {
     "name": "corporate_bank",
     "path": "/corporate_bank",
     "component": "/home/hari/Documents/Ride/UI/pages/corporate_bank.vue",
@@ -33,6 +40,13 @@
     "component": "/home/hari/Documents/Ride/UI/pages/driverbank.vue",
     "chunkName": "pages/driverbank",
     "_name": "_2c75cf2a"
+  },
+  {
+    "name": "drivers_quotes",
+    "path": "/drivers_quotes",
+    "component": "/home/hari/Documents/Ride/UI/pages/drivers_quotes.vue",
+    "chunkName": "pages/drivers_quotes",
+    "_name": "_2dbfc931"
   },
   {
     "name": "logincorporate",
@@ -96,6 +110,13 @@
     "component": "/home/hari/Documents/Ride/UI/pages/test.vue",
     "chunkName": "pages/test",
     "_name": "_12d73cd8"
+  },
+  {
+    "name": "user_book",
+    "path": "/user_book",
+    "component": "/home/hari/Documents/Ride/UI/pages/user_book.vue",
+    "chunkName": "pages/user_book",
+    "_name": "_5931c907"
   },
   {
     "name": "user_requests",

@@ -96,6 +96,18 @@
                             <input style="padding-top: 7%;"    type="date" v-model="vehicle.expiry_date" :rules="[v => !!v || 'Date is required']">
                         </v-col>
                      </v-row>
+                     <v-row>
+                      <div class="text-subtitle-1 text-medium-emphasis">Agency Mobile Number</div>
+  
+                            <v-text-field
+                            v-model="vehicle.mobile_number"
+                              density="compact"
+                              placeholder="Enter Vehicle Registration number"
+                              prepend-inner-icon="mdi-account-outline"
+                              variant="outlined"
+                              :rules="[rules.required]"
+                            ></v-text-field>
+                     </v-row>
                      <br>
                      <div class="text-title-1 text-xm text-medium-emphasis">Upload the documents(Insurance, Fitness, RC book)</div>
                      <v-row>
@@ -146,8 +158,8 @@
         },
   
         vehicle : {
-          
           owner_name:'',
+          mobile_number:'',
           supplier_type:'',
           vehicle_type:'',
           fuel_type:'',
@@ -161,7 +173,7 @@
     
       methods: {
         async submit(){
-          this.$storage.setUniversal('vehicle',this.vehicle.registration_no)
+          this.$storage.setUniversal('vehicle',this.vehicle.mobile_number)
         let  url = "http://127.0.0.1:8000/vehicle"
         let res= await this.$axios.post(url, this.vehicle)
         console.log(res.data)

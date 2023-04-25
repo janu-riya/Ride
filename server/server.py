@@ -226,16 +226,13 @@ async def corporate_login(mobile_number: str, password: str):
 #Driver registration Model.....................................................
 
 class Driver(BaseModel):
+    corporate_mobile : str
     first_name : str
     last_name : str
     aadhar_id: str
     location: str
     password : str
     mobile_number: str
-    gst_number: str = None
-    firm_pan_number : str = None
-    natureof_business : str = None
-
 @app.post("/driver")
 async def create_driver(driver: Driver):
     try:
@@ -380,6 +377,7 @@ async def delete_corporate_bank(account_number:str):
 
 #____________________________________________________________VEHICLE REGISTRATION_______________________________________________________________________________________
 class Vehicle(BaseModel):
+    mobile_number:str
     owner_name : str
     supplier_type : str
     vehicle_type: str
@@ -628,6 +626,7 @@ async def delete_trip(id: str):
 class quote(BaseModel):
     id: str
     mobile_number: str
+    driver_number: str
     Select_the_vehicle: str
     Select_the_driver: str
     waiting_charge: str
@@ -690,16 +689,55 @@ async def change_Quote(quote: Cquote):
         print(str(e))
         return False
     
-@app.get("/quote/all")
-async def get_all_quotes():
+@app.get("/quote/user/all")
+async def get_all_quotes(mobile_number: str):
     
     try:
-        filter={}
+        filter={
+            'mobile_number': mobile_number,
+        }
         project={
-            '_id': 0
+            '_id': 0,
         }
         return list(client.uber.quote.find(filter=filter,projection=project))
         
     except Exception as e:
         print(str(e))
         return False
+    
+@app.get("/quote/driver/all")
+async def get_all_quotes(driver_number: str):
+    
+    try:
+        filter={
+            'driver_number': driver_number,
+        }
+        project={
+            '_id': 0,
+        }
+        return list(client.uber.quote.find(filter=filter,projection=project))
+        
+    except Exception as e:
+        print(str(e))
+        return False
+    
+#____________________________________________________________PAYMENT_______________________________________________________
+
+class Payment(BaseModel):
+    name: str
+    mobile_number:str
+    card_number: str
+    exp_month: str
+    exp_date: str
+    cvv: str
+
+# Define a route to handle payment requests
+@app.post("/payment")
+async def process_payment(payment: Payment):
+    try:
+        client.uber.payment.insert_one(dict(payment))
+        return True
+    except Exception as e:
+        print(str(e))
+        return False
+    
